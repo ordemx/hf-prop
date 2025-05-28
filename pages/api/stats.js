@@ -6,7 +6,6 @@ export default async function handler(req, res) {
     const response = await fetch(url);
     const text = await response.text();
 
-    // PSKReporter повертає text/plain з JSON-подібним вмістом
     const jsonStart = text.indexOf('{');
     const rawJson = text.slice(jsonStart);
     const stats = JSON.parse(rawJson);
