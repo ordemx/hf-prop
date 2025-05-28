@@ -1,0 +1,11 @@
+async function fetchQsoStats() {
+  try {
+    const res = await fetch("/api/stats");
+    const data = await res.json();
+
+    const total = data.total_tx || "—";
+    drawText(`QSO today: ${total}`, 10, 150); // приклад використання з Canvas
+  } catch (e) {
+    console.error("Failed to load stats", e);
+  }
+}
